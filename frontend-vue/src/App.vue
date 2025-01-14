@@ -1,7 +1,15 @@
 <script setup lang="ts">
-import HelloWorld from '@/components/HelloWorld.vue'
+import { RouterView } from "vue-router"
 </script>
 
 <template>
-  <HelloWorld msg="welcome to fs starter vue ya fs" />
+  <main>
+    <RouterView />
+  </main>
 </template>
+
+<style scoped>
+main {
+  width: 95vw;
+}
+</style>

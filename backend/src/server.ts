@@ -1,19 +1,23 @@
-import './lib/module-alias-config'
-import express, { Request, Response, Application } from 'express'
-import dotenv from 'dotenv'
-import { test } from '@/lib/utils'
+import "./api/lib/module-alias-config"
+import { configs } from "./config/vars"
+import { validateEnvConfigs } from "./api/validations/env"
+import app from "./config/express"
+import * as process from "process"
 
-//For env File
-dotenv.config()
-const app: Application = express()
-const port = process.env.PORT || 8000
+const { service, port, env } = configs
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Welcome to Express & TypeScript Server')
-})
-
-app.listen(port, () => {
-  console.log(`Server is Fire at http://localhost:${port}`)
-})
-
-test()
+;(async () => {
+  try {
+    const status = await validateEnvConfigs(configs)
+    if (status.invalid) {
+      console.log("service is missing environment variables:", status.errors)
+      process.exit(1)
+    }
+    app.listen(port, () => {
+      console.log(`service ${service} started on port ${port} (${env})`)
+    })
+  } catch (err) {
+    console.log(`service ends with error : ${err}`)
+    process.exit(0)
+  }
+})()
