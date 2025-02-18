@@ -55,8 +55,8 @@ Ensure you have the following installed on your machine:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Shmuelmb/compie-task.git
-cd compie-task
+git clone https://github.com/Shmuelmb/fs-starter.git
+cd fs-starter
 ```
 
 ### 2. Set the Node Version
