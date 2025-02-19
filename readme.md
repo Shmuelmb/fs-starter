@@ -1,8 +1,8 @@
-#  Task
+# FS-STARTER
 
 ### Stack
 
-- **Frontend:** Vue 3 with TypeScript
+- **Frontend:** Vue 3 with TypeScript or React 19 with TypeScript
 - **Backend:** Node.js with Express and TypeScript
 - **Database:** PostgreSQL managed with Prisma ORM
 
